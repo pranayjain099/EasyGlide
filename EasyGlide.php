@@ -17,5 +17,27 @@
 
 if (!defined("ABSPATH")) {
     die (' hehehehehe');
-    exit;
+}
+
+if (!class_exists('Easy_Glide')) {
+
+    class Easy_Glde
+    {
+        function __construct()
+        {
+            $this->define_constant();
+        }
+
+        public function define_constant()
+        {
+            define('EASY_GLIDE_PATH', plugin_dir_path(__FILE__));
+            define('EASY_GLIDE_URL', plugin_dir_url(__FILE__));
+            define('EASY_GLIDE_VERSION', '1.0.0');
+        }
+    }
+}
+
+if (class_exists('Easy_Glide')) {
+
+    $easy_glide = new Easy_Glde();
 }
