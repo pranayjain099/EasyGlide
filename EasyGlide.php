@@ -25,7 +25,12 @@ if (!class_exists('Easy_Glide')) {
     {
         function __construct()
         {
+
             $this->define_constant();
+
+            // Require Custom post type file
+            require_once (EASY_GLIDE_PATH . 'post-types/class.easy-glide-cpt.php');
+            $Easy_Glide_Post_Type = new Easy_Glide_Post_Type();
         }
 
         public static function activate()
