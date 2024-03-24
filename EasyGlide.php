@@ -47,6 +47,9 @@ if (!class_exists('Easy_Glide')) {
             //  it flushes the rewrite rules.
 
             flush_rewrite_rules();
+
+            // Unregister custom post type
+            unregister_post_type('easy-glide');
         }
 
         public static function uninstall()

@@ -21,7 +21,7 @@ if (!class_exists('Easy_Glide_Post_Type')) {
             $args =
                 [
                     'labels' => $labels,
-                    'description' => 'Sliders',
+                    'description' => 'Will help you to create each item in the slideshow',
                     'public' => true,
                     'supports' => ['title', 'editor', 'thumbnail'],
                     'hierarchical' => false,
