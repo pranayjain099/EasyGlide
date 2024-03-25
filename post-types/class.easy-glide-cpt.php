@@ -21,7 +21,7 @@ if (!class_exists('Easy_Glide_Post_Type')) {
             $args =
                 [
                     'labels' => $labels,
-                    'description' => 'Will help you to create each item in the slideshow',
+                    'description' => 'This will help you to create each item in the slideshow',
                     'public' => true,
                     'supports' => ['title', 'editor', 'thumbnail'],
                     'hierarchical' => false,
@@ -36,7 +36,6 @@ if (!class_exists('Easy_Glide_Post_Type')) {
                     'publicly_queryable' => true,
                     'show_in_rest' => true,
                     'menu_icon' => 'dashicons-images-alt2'
-
                 ];
 
             // Registering post type 

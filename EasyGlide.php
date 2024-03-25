@@ -15,17 +15,18 @@
  * Domain Path:       /languages
  */
 
+// defining ABSPATH for security purpose
 if (!defined("ABSPATH")) {
     die (' hehehehehe');
 }
 
+// Defining class 
 if (!class_exists('Easy_Glide')) {
 
     class Easy_Glide
     {
         function __construct()
         {
-
             $this->define_constant();
 
             // Require Custom post type file
@@ -57,7 +58,6 @@ if (!class_exists('Easy_Glide')) {
 
         }
 
-
         // Defining constants 
         public function define_constant()
         {
@@ -74,5 +74,7 @@ if (class_exists('Easy_Glide')) {
     register_activation_hook(__FILE__, array('Easy_Glide', 'activate'));
     register_deactivation_hook(__FILE__, array('Easy_Glide', 'deactivate'));
     register_uninstall_hook(__FILE__, array('Easy_Glide', 'uninstall'));
+
+    // Creating object of class
     $easy_glide = new Easy_Glide();
 }
