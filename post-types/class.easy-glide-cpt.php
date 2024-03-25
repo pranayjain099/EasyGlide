@@ -7,8 +7,12 @@ if (!class_exists('Easy_Glide_Post_Type')) {
         {
             // Custom post type 
             add_action('init', array($this, 'create_post_type'));
+
+            // Meta boxes
+            add_action('add_meta_boxes', array($this, 'add_meta_boxes'));
         }
 
+        // Callback function of Custom post type
         public function create_post_type()
         {
             $labels =
@@ -40,6 +44,24 @@ if (!class_exists('Easy_Glide_Post_Type')) {
 
             // Registering post type 
             register_post_type('easy-glide', $args);
+        }
+
+        // Callback function of Meta boxes
+        public function add_meta_boxes()
+        {
+            add_meta_box(
+                'easy_glide_meta_box',
+                'Link Options',
+                array($this, 'add_inner_meta_boxes'),
+                'easy-glide',
+                'normal',
+                'high'
+            );
+        }
+
+        public function add_inner_meta_boxes($post)
+        {
+
         }
     }
 }
