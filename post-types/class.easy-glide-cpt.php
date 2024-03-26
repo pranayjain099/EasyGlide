@@ -50,18 +50,18 @@ if (!class_exists('Easy_Glide_Post_Type')) {
         public function add_meta_boxes()
         {
             add_meta_box(
-                'easy_glide_meta_box',
-                'Link Options',
-                array($this, 'add_inner_meta_boxes'),
-                'easy-glide',
-                'normal',
-                'high'
+                'easy_glide_meta_box',                  // Id 
+                'Link Options',                         // Title
+                array($this, 'add_inner_meta_boxes'),   // Callback function
+                'easy-glide',                           // screen
+                'normal',                               // Context
+                'high'                                  // Priority
             );
         }
 
         public function add_inner_meta_boxes($post)
         {
-
+            require_once (EASY_GLIDE_PATH . 'views/mv-slider_metabox.php');
         }
     }
 }
