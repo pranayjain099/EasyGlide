@@ -86,9 +86,19 @@ if (!class_exists('Easy_Glide_Post_Type')) {
 
                 // Adding / updating data in the table for both the fields
 
-                update_post_meta($post_id, 'easy_glide_link_text', sanitize_text_field($new_link_text), $old_link_text);
-                update_post_meta($post_id, 'easy_glide_link_url', sanitize_text_field($new_link_url), $old_link_url);
+                // Sanitizing the user input and also giving some default value if user kept both the fields empty then it should save some default information in the database so that we have something to display.
 
+                if (empty($new_link_text)) {
+                    update_post_meta($post_id, 'easy_glide_link_text', 'Add some text');
+                } else {
+                    update_post_meta($post_id, 'easy_glide_link_text', sanitize_text_field($new_link_text), $old_link_text);
+                }
+
+                if (empty($new_link_url)) {
+                    update_post_meta($post_id, 'easy_glide_link_url', '#');
+                } else {
+                    update_post_meta($post_id, 'easy_glide_link_url', sanitize_text_field($new_link_url), $old_link_url);
+                }
             }
         }
     }
