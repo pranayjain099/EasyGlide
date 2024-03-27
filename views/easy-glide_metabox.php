@@ -17,7 +17,7 @@ $link_url = get_post_meta($post->ID, 'easy_glide_link_url', true);
         </th>
         <td>
             <input type="text" name="easy_glide_link_text" id="easy_glide_link_text" class="regular-text link-text"
-                value="<?php echo (isset($link_text)) ? $link_text : ''; ?>" required>
+                value="<?php echo (isset($link_text)) ? esc_html($link_text) : ''; ?>" required>
         </td>
     </tr>
     <tr>
@@ -26,7 +26,7 @@ $link_url = get_post_meta($post->ID, 'easy_glide_link_url', true);
         </th>
         <td>
             <input type="url" name="easy_glide_link_url" id="easy_glide_link_url" class="regular-text link-url"
-                value="<?php echo (isset($link_url)) ? $link_url : ''; ?>" required>
+                value="<?php echo (isset($link_url)) ? esc_url($link_url) : ''; ?>" required>
         </td>
     </tr>
 </table>
