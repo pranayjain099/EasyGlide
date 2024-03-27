@@ -10,6 +10,8 @@ if (!class_exists('Easy_Glide_Post_Type')) {
 
             // Meta boxes
             add_action('add_meta_boxes', array($this, 'add_meta_boxes'));
+
+            add_action('save_post', array($this, 'save_post'), 10, 2);
         }
 
         // Callback function of Custom post type
@@ -59,9 +61,33 @@ if (!class_exists('Easy_Glide_Post_Type')) {
             );
         }
 
+        // Callback function for Metabox html
         public function add_inner_meta_boxes($post)
         {
-            require_once (EASY_GLIDE_PATH . 'views/mv-slider_metabox.php');
+            require_once (EASY_GLIDE_PATH . 'views/easy-glide_metabox.php');
+        }
+
+        // Saving the data in wp_postmeta table
+        public function save_post($post_id)
+        {
+            if (isset($_POST['action']) && $_POST['action'] == 'editpost') {
+
+                // As we have two fields in the metabox so created 4 varible (2 for each) saving their old and new value in the variable.
+
+                // Created a variable to store old value of the field if already exists in the table
+                $old_link_text = get_post_meta($post_id, 'mv_slider_link_text', true);
+
+                // Created a variable to store new value passed by the user in the admin screen.
+                $new_link_text = $_POST['mv_slider_link_text'];
+
+                // Same here
+                $old_link_url = get_post_meta($post_id, 'mv_slider_link_url', true);
+                $new_link_url = $_POST['mv_slider_link_url'];
+
+                // Adding / updating data in the table for both the fields
+                update_post_meta($post_id, 'mv_slider_link_text', $new_link_text, $old_link_text);
+                update_post_meta($post_id, 'mv_slider_link_url', $new_link_url, $old_link_url);
+            }
         }
     }
 }
