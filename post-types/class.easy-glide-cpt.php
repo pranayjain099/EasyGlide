@@ -11,6 +11,7 @@ if (!class_exists('Easy_Glide_Post_Type')) {
             // Meta boxes
             add_action('add_meta_boxes', array($this, 'add_meta_boxes'));
 
+            // Save meta box
             add_action('save_post', array($this, 'save_post'), 10, 2);
         }
 
@@ -47,7 +48,6 @@ if (!class_exists('Easy_Glide_Post_Type')) {
             // Registering post type 
             register_post_type('easy-glide', $args);
         }
-
         // Callback function of Meta boxes
         public function add_meta_boxes()
         {
@@ -75,18 +75,20 @@ if (!class_exists('Easy_Glide_Post_Type')) {
                 // As we have two fields in the metabox so created 4 varible (2 for each) saving their old and new value in the variable.
 
                 // Created a variable to store old value of the field if already exists in the table
-                $old_link_text = get_post_meta($post_id, 'mv_slider_link_text', true);
+                $old_link_text = get_post_meta($post_id, 'easy_glide_link_text', true);
 
                 // Created a variable to store new value passed by the user in the admin screen.
-                $new_link_text = $_POST['mv_slider_link_text'];
+                $new_link_text = $_POST['easy_glide_link_text'];
 
                 // Same here
-                $old_link_url = get_post_meta($post_id, 'mv_slider_link_url', true);
-                $new_link_url = $_POST['mv_slider_link_url'];
+                $old_link_url = get_post_meta($post_id, 'easy_glide_link_url', true);
+                $new_link_url = $_POST['easy_glide_link_url'];
 
                 // Adding / updating data in the table for both the fields
-                update_post_meta($post_id, 'mv_slider_link_text', $new_link_text, $old_link_text);
-                update_post_meta($post_id, 'mv_slider_link_url', $new_link_url, $old_link_url);
+
+                update_post_meta($post_id, 'easy_glide_link_text', sanitize_text_field($new_link_text), $old_link_text);
+                update_post_meta($post_id, 'easy_glide_link_url', sanitize_text_field($new_link_url), $old_link_url);
+
             }
         }
     }
