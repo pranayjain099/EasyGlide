@@ -19,6 +19,9 @@ if (!class_exists('Easy_Glide_Post_Type')) {
 
             // CPT Column Value
             add_action('manage_easy-glide_posts_custom_column', array($this, 'easy_glide_custom_columns'), 10, 2);
+
+            // Sorting column
+            add_filter('manage_edit-easy-glide_sortable_columns', array($this, 'easy_glide_sortable_columns'));
         }
 
         // Callback function of Custom post type
@@ -74,6 +77,13 @@ if (!class_exists('Easy_Glide_Post_Type')) {
                     echo esc_url(get_post_meta($post_id, 'easy_glide_link_url', true));
                     break;
             }
+        }
+
+        // Callback function for Sorting column
+        public function easy_glide_sortable_columns($columns)
+        {
+            $columns['easy_glide_link_text'] = 'easy_glide_link_text';
+            return $columns;
         }
 
         // Callback function of Meta boxes
