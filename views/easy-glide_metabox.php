@@ -12,7 +12,7 @@ $link_url = get_post_meta($post->ID, 'easy_glide_link_url', true);
 ?>
 
 <!-- HTMl Form  -->
-<table class="form-table mv-slider-metabox">
+<table class="form-table easy-glide-metabox">
 
     <!--  Hidden NONCE created -->
     <input type="hidden" name="easy_glide_nonce" value="<?php echo wp_create_nonce("easy_glide_nonce"); ?>">

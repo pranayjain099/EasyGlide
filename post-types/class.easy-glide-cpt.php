@@ -13,6 +13,12 @@ if (!class_exists('Easy_Glide_Post_Type')) {
 
             // Save meta box
             add_action('save_post', array($this, 'save_post'), 10, 2);
+
+            // Filter the CPT column
+            add_filter('manage_easy-glide_posts_columns', array($this, 'easy_glide_cpt_columns'));
+
+            // CPT Column Value
+            add_action('manage_easy-glide_posts_custom_column', array($this, 'easy_glide_custom_columns'), 10, 2);
         }
 
         // Callback function of Custom post type
@@ -48,6 +54,28 @@ if (!class_exists('Easy_Glide_Post_Type')) {
             // Registering post type 
             register_post_type('easy-glide', $args);
         }
+
+        // Callback function of CPT column
+        public function easy_glide_cpt_columns($columns)
+        {
+            $columns['easy_glide_link_text'] = esc_html__('Link Text', 'easy-glide');
+            $columns['easy_glide_link_url'] = esc_html__('Link URL', 'easy-glide');
+            return $columns;
+        }
+
+        // Callback function to show values in CPT Column
+        public function easy_glide_custom_columns($column, $post_id)
+        {
+            switch ($column) {
+                case 'easy_glide_link_text':
+                    echo esc_html(get_post_meta($post_id, 'easy_glide_link_text', true));
+                    break;
+                case 'easy_glide_link_url':
+                    echo esc_url(get_post_meta($post_id, 'easy_glide_link_url', true));
+                    break;
+            }
+        }
+
         // Callback function of Meta boxes
         public function add_meta_boxes()
         {
@@ -84,7 +112,7 @@ if (!class_exists('Easy_Glide_Post_Type')) {
             }
 
             // Verifying if user is in the correct screen of CPT
-            if (isset($_POST['post_type']) && $_POST['post_type'] === 'mv-slider') {
+            if (isset($_POST['post_type']) && $_POST['post_type'] === 'easy-glide') {
                 if (!current_user_can('edit_page', $post_id)) {
                     return;
                 } elseif (!current_user_can('edit_post', $post_id)) {
