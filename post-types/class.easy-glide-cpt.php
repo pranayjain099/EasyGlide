@@ -70,6 +70,28 @@ if (!class_exists('Easy_Glide_Post_Type')) {
         // Saving the data in wp_postmeta table
         public function save_post($post_id)
         {
+
+            // Verifying Nonce 
+            if (isset($_POST['easy_glide_nonce'])) {
+                if (!wp_verify_nonce($_POST['easy_glide_nonce'], 'easy_glide_nonce')) {
+                    return;
+                }
+            }
+
+            // DOING_AUTOSAVE is set and wordpress is doing autosave then we won't save the data.
+            if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+                return;
+            }
+
+            // Verifying if user is in the correct screen of CPT
+            if (isset($_POST['post_type']) && $_POST['post_type'] === 'mv-slider') {
+                if (!current_user_can('edit_page', $post_id)) {
+                    return;
+                } elseif (!current_user_can('edit_post', $post_id)) {
+                    return;
+                }
+            }
+
             if (isset($_POST['action']) && $_POST['action'] == 'editpost') {
 
                 // As we have two fields in the metabox so created 4 varible (2 for each) saving their old and new value in the variable.
