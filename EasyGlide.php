@@ -17,7 +17,7 @@
 
 // defining ABSPATH for security purpose
 if (!defined("ABSPATH")) {
-    die (' hehehehehe');
+    die(' hehehehehe');
 }
 
 // Defining class 
@@ -29,17 +29,24 @@ if (!class_exists('Easy_Glide')) {
         {
             $this->define_constant();
 
+            // Adding menu in admin
+            add_action('admin_menu', array($this, 'add_menu'));
+
             // Require Custom post type file
             require_once (EASY_GLIDE_PATH . 'post-types/class.easy-glide-cpt.php');
             $Easy_Glide_Post_Type = new Easy_Glide_Post_Type();
         }
 
+        // Defining constants 
+        public function define_constant()
+        {
+            define('EASY_GLIDE_PATH', plugin_dir_path(__FILE__));
+            define('EASY_GLIDE_URL', plugin_dir_url(__FILE__));
+            define('EASY_GLIDE_VERSION', '1.0.0');
+        }
         public static function activate()
         {
-            /**
-             * Updating the option 'rewrite_rules' to an empty string during plugin activation is a common practice in WordPress plugin development. By updating the 'rewrite_rules' option to an empty string you're essentially triggering WordPress to rebuild the rewrite rules from scratch. This ensures that any custom rewrite rules added by your plugin are properly incorporated into the system.
-             * do not worry as soon as you will save a post these rules will be recovered again.
-             */
+            // Updating the option 'rewrite_rules' to an empty string during plugin activation is a common practice in WordPress plugin development. 
             update_option('rewrite_rules', '');
         }
 
@@ -58,13 +65,24 @@ if (!class_exists('Easy_Glide')) {
 
         }
 
-        // Defining constants 
-        public function define_constant()
+        // Callback function to add_menu in admmin
+        public function add_menu()
         {
-            define('EASY_GLIDE_PATH', plugin_dir_path(__FILE__));
-            define('EASY_GLIDE_URL', plugin_dir_url(__FILE__));
-            define('EASY_GLIDE_VERSION', '1.0.0');
+            add_menu_page(
+                'Easy Glide Options',
+                'Easy Glide',
+                'manage_options',
+                'easy_glide_admin',
+                array($this, 'easy_glide_settings_page'),
+                'dashicons-images-alt2'
+            );
         }
+
+        public function easy_glide_settings_page()
+        {
+            echo "This is a test page";
+        }
+
     }
 }
 
