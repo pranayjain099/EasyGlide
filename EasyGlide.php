@@ -76,6 +76,28 @@ if (!class_exists('Easy_Glide')) {
                 array($this, 'easy_glide_settings_page'),
                 'dashicons-images-alt2'
             );
+
+            // Submenu 1 = Opens the slider post type page
+            add_submenu_page(
+                'easy_glide_admin',
+                'Manage Slides',
+                'Manage Slides',
+                'manage_options',
+                'edit.php?post_type=easy-glide',
+                null,
+                null
+            );
+
+            // Submenu 2   = to add new post in slider 
+            add_submenu_page(
+                'easy_glide_admin',
+                'Add New Slide',
+                'Add New Slide',
+                'manage_options',
+                'post-new.php?post_type=easy-glide',
+                null,
+                null
+            );
         }
 
         public function easy_glide_settings_page()
