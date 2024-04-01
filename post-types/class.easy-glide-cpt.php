@@ -14,10 +14,10 @@ if (!class_exists('Easy_Glide_Post_Type')) {
             // Save meta box
             add_action('save_post', array($this, 'save_post'), 10, 2);
 
-            // Filter the CPT column
+            // Structuring the CPT column
             add_filter('manage_easy-glide_posts_columns', array($this, 'easy_glide_cpt_columns'));
 
-            // CPT Column Value
+            // Populating the cpt column
             add_action('manage_easy-glide_posts_custom_column', array($this, 'easy_glide_custom_columns'), 10, 2);
 
             // Sorting column
@@ -58,7 +58,7 @@ if (!class_exists('Easy_Glide_Post_Type')) {
             register_post_type('easy-glide', $args);
         }
 
-        // Callback function of CPT column
+        // Structuring of CPT column
         public function easy_glide_cpt_columns($columns)
         {
             $columns['easy_glide_link_text'] = esc_html__('Link Text', 'easy-glide');
@@ -66,7 +66,7 @@ if (!class_exists('Easy_Glide_Post_Type')) {
             return $columns;
         }
 
-        // Callback function to show values in CPT Column
+        // populating CPT Column
         public function easy_glide_custom_columns($column, $post_id)
         {
             switch ($column) {
@@ -79,7 +79,7 @@ if (!class_exists('Easy_Glide_Post_Type')) {
             }
         }
 
-        // Callback function for Sorting column
+        //  Sorting CPT column
         public function easy_glide_sortable_columns($columns)
         {
             $columns['easy_glide_link_text'] = 'easy_glide_link_text';
@@ -116,7 +116,7 @@ if (!class_exists('Easy_Glide_Post_Type')) {
                 }
             }
 
-            // DOING_AUTOSAVE is set and wordpress is doing autosave then we won't save the data.
+            // If DOING_AUTOSAVE is set and wordpress is doing autosave then we won't save the data.
             if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
                 return;
             }

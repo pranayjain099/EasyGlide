@@ -16,6 +16,8 @@ $link_url = get_post_meta($post->ID, 'easy_glide_link_url', true);
 
     <!--  Hidden NONCE created -->
     <input type="hidden" name="easy_glide_nonce" value="<?php echo wp_create_nonce("easy_glide_nonce"); ?>">
+   
+   <!-- Table -->
     <tr>
         <th>
             <label for="easy_glide_link_text">Link Text</label>
