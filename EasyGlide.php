@@ -65,7 +65,7 @@ if (!class_exists('Easy_Glide')) {
 
         }
 
-        // Callback function to add_menu in admmin
+        // Callback function to add_menu in admin
         public function add_menu()
         {
             add_menu_page(
@@ -85,7 +85,7 @@ if (!class_exists('Easy_Glide')) {
                 'manage_options',
                 'edit.php?post_type=easy-glide',
                 null,    // Existing page so no callback function
-                null
+
             );
 
             // Submenu 2   = to add new post in slider 
@@ -96,13 +96,14 @@ if (!class_exists('Easy_Glide')) {
                 'manage_options',
                 'post-new.php?post_type=easy-glide',
                 null,   // Existing page so no callback function
-                null
+
             );
         }
 
+        // Callback function of menu
         public function easy_glide_settings_page()
         {
-            echo "This is a test page";
+            require (EASY_GLIDE_PATH . 'views/settings-page.php');
         }
 
     }
