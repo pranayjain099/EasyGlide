@@ -107,6 +107,19 @@ if (!class_exists('Easy_Glide')) {
         // Callback function of menu
         public function easy_glide_settings_page()
         {
+            // Control access to our settings page , if user has direct link of settings page we should prevent him.
+            if (!current_user_can('manage_options')) {
+                return;
+            }
+
+            // Showing success message when data is saved 
+            if (isset($_GET['settings-updated'])) {
+                add_settings_error('easy_glide_options', 'easy_glide_message', 'Settings Saved', 'success');
+            }
+
+            // showing error message 
+            settings_errors('easy_glide_options');
+
             // Whole content of settings page 
             require (EASY_GLIDE_PATH . 'views/settings-page.php');
         }
