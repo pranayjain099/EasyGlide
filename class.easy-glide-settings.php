@@ -34,10 +34,10 @@ if (!class_exists('Easy_Glide_Settings')) {
 
             // Section 2
             add_settings_section(
-                'mv_slider_second_section',
+                'easy_glide_second_section',
                 'Other Plugin Options',
                 null,
-                'mv_slider_page2'
+                'easy_glide_page2'
             );
 
 
@@ -52,29 +52,29 @@ if (!class_exists('Easy_Glide_Settings')) {
 
             // Field 2.1
             add_settings_field(
-                'mv_slider_title',
+                'easy_glide_title',
                 'Slider Title',
-                array($this, 'mv_slider_title_callback'),
-                'mv_slider_page2',
-                'mv_slider_second_section'
+                array($this, 'easy_glide_title_callback'),
+                'easy_glide_page2',
+                'easy_glide_second_section'
             );
 
             // Field 2.2
             add_settings_field(
-                'mv_slider_bullets',
+                'easy_glide_bullets',
                 'Display Bullets',
-                array($this, 'mv_slider_bullets_callback'),
-                'mv_slider_page2',
-                'mv_slider_second_section'
+                array($this, 'easy_glide_bullets_callback'),
+                'easy_glide_page2',
+                'easy_glide_second_section'
             );
 
             // Field 2.3
             add_settings_field(
-                'mv_slider_style',
+                'easy_glide_style',
                 'Slider Style',
-                array($this, 'mv_slider_style_callback'),
-                'mv_slider_page2',
-                'mv_slider_second_section'
+                array($this, 'easy_glide_style_callback'),
+                'easy_glide_page2',
+                'easy_glide_second_section'
             );
 
         }
@@ -89,17 +89,17 @@ if (!class_exists('Easy_Glide_Settings')) {
         }
 
         // Callback function of field 2.1
-        public function mv_slider_title_callback()
+        public function easy_glide_title_callback()
         {
         }
 
         // Callback function of field 2.2
-        public function mv_slider_bullets_callback()
+        public function easy_glide_bullets_callback()
         {
         }
 
         // Callback function of field 2.3
-        public function mv_slider_style_callback()
+        public function easy_glide_style_callback()
         {
         }
     }
