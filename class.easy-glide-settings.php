@@ -23,12 +23,21 @@ if (!class_exists('Easy_Glide_Settings')) {
         {
             // Registering the settings 
             register_setting('easy_glide_group', 'easy_glide_options');
+
             // Section 1
             add_settings_section(
                 'easy_glide_main_section',
                 'How does it work?',
                 null,
                 'easy_glide_page1'
+            );
+
+            // Section 2
+            add_settings_section(
+                'mv_slider_second_section',
+                'Other Plugin Options',
+                null,
+                'mv_slider_page2'
             );
 
 
@@ -41,15 +50,57 @@ if (!class_exists('Easy_Glide_Settings')) {
                 'easy_glide_main_section'
             );
 
+            // Field 2.1
+            add_settings_field(
+                'mv_slider_title',
+                'Slider Title',
+                array($this, 'mv_slider_title_callback'),
+                'mv_slider_page2',
+                'mv_slider_second_section'
+            );
+
+            // Field 2.2
+            add_settings_field(
+                'mv_slider_bullets',
+                'Display Bullets',
+                array($this, 'mv_slider_bullets_callback'),
+                'mv_slider_page2',
+                'mv_slider_second_section'
+            );
+
+            // Field 2.3
+            add_settings_field(
+                'mv_slider_style',
+                'Slider Style',
+                array($this, 'mv_slider_style_callback'),
+                'mv_slider_page2',
+                'mv_slider_second_section'
+            );
+
         }
 
 
-        // Callback function of field
+        // Callback function of field 1.1
         public function easy_glide_shortcode_callback()
         {
             ?>
             <span>Use the shortcode [easy_glide] to display the slider in any page/post/widget</span>
             <?php
+        }
+
+        // Callback function of field 2.1
+        public function mv_slider_title_callback()
+        {
+        }
+
+        // Callback function of field 2.2
+        public function mv_slider_bullets_callback()
+        {
+        }
+
+        // Callback function of field 2.3
+        public function mv_slider_style_callback()
+        {
         }
     }
 
