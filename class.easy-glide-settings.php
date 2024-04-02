@@ -22,7 +22,7 @@ if (!class_exists('Easy_Glide_Settings')) {
         public function admin_init()
         {
             // Registering the settings 
-            register_setting('easy_glide_group', 'easy_glide_options');
+            register_setting('easy_glide_group', 'easy_glide_options', array($this, 'easy_glide_validate'));
 
             // Section 1
             add_settings_section(
@@ -140,6 +140,26 @@ if (!class_exists('Easy_Glide_Settings')) {
                 <?php endforeach; ?>
             </select>
             <?php
+        }
+
+        // Validating the input fields 
+        public function easy_glide_validate($input)
+        {
+            $new_input = array();
+            foreach ($input as $key => $value) {
+                switch ($key) {
+                    case 'easy_glide_title':
+                        if (empty($value)) {
+                            $value = 'Please, type some text';
+                        }
+                        $new_input[$key] = sanitize_text_field($value);
+                        break;
+                    default:
+                        $new_input[$key] = sanitize_text_field($value);
+                        break;
+                }
+            }
+            return $new_input;
         }
     }
 
