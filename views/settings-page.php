@@ -14,6 +14,7 @@
         <?php
         settings_fields('easy_glide_group');
         do_settings_sections('easy_glide_page1');
+        do_settings_sections('easy_glide_page2');
         submit_button('Save Settings');
         ?>
 

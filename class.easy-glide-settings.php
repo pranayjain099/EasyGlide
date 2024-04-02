@@ -91,16 +91,35 @@ if (!class_exists('Easy_Glide_Settings')) {
         // Callback function of field 2.1
         public function easy_glide_title_callback()
         {
+            ?>
+            <input type="text" name="easy_glide_options[easy_glide_title]" id="easy_glide_title"
+                value="<?php echo isset(self::$options['easy_glide_title']) ? esc_attr(self::$options['easy_glide_title']) : ''; ?>">
+            <?php
         }
 
         // Callback function of field 2.2
         public function easy_glide_bullets_callback()
         {
+            ?>
+            <input type="checkbox" name="easy_glide_options[easy_glide_bullets]" id="easy_glide_bullets" value="1" <?php
+            if (isset(self::$options['easy_glide_bullets'])) {
+                checked("1", self::$options['easy_glide_bullets'], true);
+            }
+            ?> />
+            <label for="easy_glide_bullets">Whether to display bullets or not</label>
+
+            <?php
         }
 
         // Callback function of field 2.3
         public function easy_glide_style_callback()
         {
+            ?>
+            <select id="easy_glide_style" name="easy_glide_options[easy_glide_style]">
+                <option value="style-1" <?php isset(self::$options['easy_glide_style']) ? selected('style-1', self::$options['easy_glide_style'], true) : ''; ?>>Style-1</option>
+                <option value="style-2" <?php isset(self::$options['easy_glide_style']) ? selected('style-2', self::$options['easy_glide_style'], true) : ''; ?>>Style-2</option>
+            </select>
+            <?php
         }
     }
 
