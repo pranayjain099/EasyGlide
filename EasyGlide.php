@@ -35,6 +35,10 @@ if (!class_exists('Easy_Glide')) {
             // Require Custom post type file
             require_once (EASY_GLIDE_PATH . 'post-types/class.easy-glide-cpt.php');
             $Easy_Glide_Post_Type = new Easy_Glide_Post_Type();
+
+            // Require Settings file
+            require_once (EASY_GLIDE_PATH . 'class.easy-glide-settings.php');
+            $Easy_Glide_Settings = new Easy_Glide_Settings();
         }
 
         // Defining constants 
@@ -103,6 +107,7 @@ if (!class_exists('Easy_Glide')) {
         // Callback function of menu
         public function easy_glide_settings_page()
         {
+            // Whole content of settings page 
             require (EASY_GLIDE_PATH . 'views/settings-page.php');
         }
 
