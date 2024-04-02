@@ -21,6 +21,8 @@ if (!class_exists('Easy_Glide_Settings')) {
         // Register sections and fields 
         public function admin_init()
         {
+            // Registering the settings 
+            register_setting('easy_glide_group', 'easy_glide_options');
             // Section 1
             add_settings_section(
                 'easy_glide_main_section',
@@ -38,13 +40,15 @@ if (!class_exists('Easy_Glide_Settings')) {
                 'easy_glide_page1',
                 'easy_glide_main_section'
             );
+
         }
+
 
         // Callback function of field
         public function easy_glide_shortcode_callback()
         {
             ?>
-            <span>Use the shortcode [mv_slider] to display the slider in any page/post/widget</span>
+            <span>Use the shortcode [easy_glide] to display the slider in any page/post/widget</span>
             <?php
         }
     }

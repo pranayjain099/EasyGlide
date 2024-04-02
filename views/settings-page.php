@@ -11,6 +11,11 @@
 
     <!-- options.php file is responsible for processing all forms in wordpress admin-->
     <form action="options.php" method="post">
+        <?php
+        settings_fields('easy_glide_group');
+        do_settings_sections('easy_glide_page1');
+        submit_button('Save Settings');
+        ?>
 
 
     </form>
