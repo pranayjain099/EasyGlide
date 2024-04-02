@@ -56,7 +56,10 @@ if (!class_exists('Easy_Glide_Settings')) {
                 'Slider Title',
                 array($this, 'easy_glide_title_callback'),
                 'easy_glide_page2',
-                'easy_glide_second_section'
+                'easy_glide_second_section',
+                array(
+                    'label_for' => 'easy_glide_title'
+                )
             );
 
             // Field 2.2
@@ -65,7 +68,10 @@ if (!class_exists('Easy_Glide_Settings')) {
                 'Display Bullets',
                 array($this, 'easy_glide_bullets_callback'),
                 'easy_glide_page2',
-                'easy_glide_second_section'
+                'easy_glide_second_section',
+                array(
+                    'label_for' => 'easy_glide_bullets'
+                )
             );
 
             // Field 2.3
@@ -74,7 +80,14 @@ if (!class_exists('Easy_Glide_Settings')) {
                 'Slider Style',
                 array($this, 'easy_glide_style_callback'),
                 'easy_glide_page2',
-                'easy_glide_second_section'
+                'easy_glide_second_section',
+                array(
+                    'items' => array(
+                        'style-1',
+                        'style-2'
+                    ),
+                    'label_for' => 'easy_glide_style'
+                )
             );
 
         }
@@ -84,12 +97,12 @@ if (!class_exists('Easy_Glide_Settings')) {
         public function easy_glide_shortcode_callback()
         {
             ?>
-            <span>Use the shortcode [easy_glide] to display the slider in any page/post/widget</span>
+            <span>Use the shortcode [easy_glide] to display the glide in any page/post/widget</span>
             <?php
         }
 
         // Callback function of field 2.1
-        public function easy_glide_title_callback()
+        public function easy_glide_title_callback($args)
         {
             ?>
             <input type="text" name="easy_glide_options[easy_glide_title]" id="easy_glide_title"
@@ -98,7 +111,7 @@ if (!class_exists('Easy_Glide_Settings')) {
         }
 
         // Callback function of field 2.2
-        public function easy_glide_bullets_callback()
+        public function easy_glide_bullets_callback($args)
         {
             ?>
             <input type="checkbox" name="easy_glide_options[easy_glide_bullets]" id="easy_glide_bullets" value="1" <?php
@@ -112,12 +125,19 @@ if (!class_exists('Easy_Glide_Settings')) {
         }
 
         // Callback function of field 2.3
-        public function easy_glide_style_callback()
+        public function easy_glide_style_callback($args)
         {
             ?>
             <select id="easy_glide_style" name="easy_glide_options[easy_glide_style]">
-                <option value="style-1" <?php isset(self::$options['easy_glide_style']) ? selected('style-1', self::$options['easy_glide_style'], true) : ''; ?>>Style-1</option>
-                <option value="style-2" <?php isset(self::$options['easy_glide_style']) ? selected('style-2', self::$options['easy_glide_style'], true) : ''; ?>>Style-2</option>
+                <?php
+                foreach ($args['items'] as $item):
+                    ?>
+                    <option value="<?php echo esc_attr($item); ?>" <?php
+                       isset(self::$options['easy_glide_style']) ? selected($item, self::$options['easy_glide_style'], true) : '';
+                       ?>>
+                        <?php echo esc_html(ucfirst($item)); ?>
+                    </option>
+                <?php endforeach; ?>
             </select>
             <?php
         }
