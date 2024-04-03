@@ -149,6 +149,8 @@ if (!class_exists('Easy_Glide_Settings')) {
             foreach ($input as $key => $value) {
                 switch ($key) {
                     case 'easy_glide_title':
+
+                        // If the input field is empty
                         if (empty($value)) {
                             $value = 'Please, type some text';
                         }

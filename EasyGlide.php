@@ -73,7 +73,7 @@ if (!class_exists('Easy_Glide')) {
         public function add_menu()
         {
             add_menu_page(
-                'Easy Glide Options',
+                'Easy Glide Options',    // Page title
                 'Easy Glide',
                 'manage_options',
                 'easy_glide_admin',
