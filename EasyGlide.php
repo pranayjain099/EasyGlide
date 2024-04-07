@@ -39,6 +39,10 @@ if (!class_exists('Easy_Glide')) {
             // Require Settings file
             require_once (EASY_GLIDE_PATH . 'class.easy-glide-settings.php');
             $Easy_Glide_Settings = new Easy_Glide_Settings();
+
+            // Require Shortcode file
+            require_once( EASY_GLIDE_PATH . 'shortcodes/class.easy-glide-shortcode.php' );
+            $Easy_Glide_Shortcode = new Easy_Glide_Shortcode();
         }
 
         // Defining constants 
