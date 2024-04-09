@@ -33,15 +33,15 @@ if (!class_exists('Easy_Glide')) {
             add_action('admin_menu', array($this, 'add_menu'));
 
             // Require Custom post type file
-            require_once (EASY_GLIDE_PATH . 'post-types/class.easy-glide-cpt.php');
+            require_once(EASY_GLIDE_PATH . 'post-types/class.easy-glide-cpt.php');
             $Easy_Glide_Post_Type = new Easy_Glide_Post_Type();
 
             // Require Settings file
-            require_once (EASY_GLIDE_PATH . 'class.easy-glide-settings.php');
+            require_once(EASY_GLIDE_PATH . 'class.easy-glide-settings.php');
             $Easy_Glide_Settings = new Easy_Glide_Settings();
 
             // Require Shortcode file
-            require_once( EASY_GLIDE_PATH . 'shortcodes/class.easy-glide-shortcode.php' );
+            require_once(EASY_GLIDE_PATH . 'shortcodes/class.easy-glide-shortcode.php');
             $Easy_Glide_Shortcode = new Easy_Glide_Shortcode();
         }
 
@@ -70,7 +70,6 @@ if (!class_exists('Easy_Glide')) {
 
         public static function uninstall()
         {
-
         }
 
         // Callback function to add_menu in admin
@@ -125,9 +124,8 @@ if (!class_exists('Easy_Glide')) {
             settings_errors('easy_glide_options');
 
             // Whole content of settings page 
-            require (EASY_GLIDE_PATH . 'views/settings-page.php');
+            require(EASY_GLIDE_PATH . 'views/settings-page.php');
         }
-
     }
 }
 
