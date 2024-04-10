@@ -19,7 +19,6 @@
 if (!defined("ABSPATH")) {
     die(' hehehehehe');
 }
-
 // Defining class 
 if (!class_exists('Easy_Glide')) {
 
