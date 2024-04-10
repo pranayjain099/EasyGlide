@@ -41,7 +41,17 @@ if (!class_exists('Easy_Glide_Shortcode')) {
 
             ob_start();
 
+            // Require the html view
             require(EASY_GLIDE_PATH . 'views/easy-glide_shortcode.php');
+
+            // Enqueue scripts
+            wp_enqueue_script('mv-slider-main-jq');
+            wp_enqueue_script('mv-slider-options-js');
+
+            // Enqueue styles
+            wp_enqueue_style('mv-slider-main-css');
+            wp_enqueue_style('mv-slider-style-css');
+
             return ob_get_clean();
         }
     }

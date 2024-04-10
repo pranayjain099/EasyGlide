@@ -1,0 +1,76 @@
+/* Flex Slider */
+
+.easy-glide {
+    position: relative;
+}
+
+.easy-glide.flexslider {
+    border: 0 !important;
+}
+
+.easy-glide .img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+.easy-glide .mvs-container {
+    max-width: 1140px;
+    width: 100%;
+    padding-right: 50px;
+    padding-left: 50px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.easy-glide .flex-direction-nav {
+    display: none !important;
+}
+
+.easy-glide .flex-control-nav {
+    bottom: 10px !important;
+}
+
+.easy-glide .flex-direction-nav a {
+    height: 50px;
+}
+
+.easy-glide .slider-details-container {
+    color: #FFF;
+    top: 50%;
+    transform: translateY(-50%);
+    position: absolute;
+}
+
+.easy-glide .slider-details-container .subtitle {
+    margin-bottom: 15px;
+}
+
+.easy-glide .slider-details-container .slider-title {
+    color: #FFF;
+    font-weight: 700;
+}
+
+.easy-glide .slider-details-container a {
+    color: #fff;
+    border-radius: 5px;
+    text-transform: uppercase;
+    padding: 5px 25px;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.easy-glide .slider-details-container a:hover {
+    color: #fff;
+}
+
+.easy-glide .flexslider .slides {
+    padding: 0 !important;
+}
+
+.easy-glide .flex-control-paging li a.flex-active {
+    width: 25px !important;
+}
+
+.easy-glide .flex-control-nav li {
+    margin: 0 3px !important;
+}
