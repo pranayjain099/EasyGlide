@@ -91,7 +91,8 @@ if (!class_exists('Easy_Glide')) {
                 'Manage Slides',
                 'manage_options',
                 'edit.php?post_type=easy-glide',
-                null,    // Existing page so no callback function
+                null,
+                null,
 
             );
 
@@ -102,7 +103,8 @@ if (!class_exists('Easy_Glide')) {
                 'Add New Slide',
                 'manage_options',
                 'post-new.php?post_type=easy-glide',
-                null,   // Existing page so no callback function
+                null,
+                null,
 
             );
         }

@@ -1,9 +1,7 @@
 <!-- HTML of our slide show -->
 
 <h3>
-    <?php
-    echo (!empty($content)) ? esc_html($content) : esc_html(Easy_Glide_Settings::$options['easy_glide_title']);
-    ?>
+    <?php echo (!empty($content)) ? esc_html($content) : esc_html(Easy_Glide_Settings::$options['easy_glide_title']); ?>
 </h3>
 
 <div class="easy-glide flexslider ">
@@ -18,6 +16,7 @@
             'orderby' => $orderby
         );
 
+
         // Creating object of WP_QUERY
         $my_query = new WP_Query($args);
 
@@ -26,8 +25,8 @@
             while ($my_query->have_posts()) : $my_query->the_post();
 
                 // getting button data
-                // $button_text = get_post_meta(get_the_ID(), 'easy_glide_link_text', true);
-                // $button_url = get_post_meta(get_the_ID(), 'easy_glide_link_url', true);
+                $button_text = get_post_meta(get_the_ID(), 'easy_glide_link_text', true);
+                $button_url = get_post_meta(get_the_ID(), 'easy_glide_link_url', true);
 
         ?>
                 <li>
@@ -43,7 +42,7 @@
                                 <div class="slider-description">
                                     <!-- Description of the post. -->
                                     <div class="subtitle"><?php the_content(); ?></div>
-                                    <a class="link" href="#">Button </a>
+                                    <a class="link" href="<?php echo esc_attr($button_url); ?>"><?php echo esc_html($button_text); ?></a>
                                 </div>
                             </div>
                         </div>
