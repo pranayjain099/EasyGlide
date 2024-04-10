@@ -1,0 +1,12 @@
+/*  Styles for Backend */
+.easy-glide-metabox label {
+    color: #f00;
+}
+
+.easy-glide-metabox td {
+    padding: 5px;
+}
+
+.easy-glide-metabox th {
+    padding: 10px 10px 5px 0;
+}

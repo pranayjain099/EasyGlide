@@ -44,8 +44,11 @@ if (!class_exists('Easy_Glide')) {
             require_once(EASY_GLIDE_PATH . 'shortcodes/class.easy-glide-shortcode.php');
             $Easy_Glide_Shortcode = new Easy_Glide_Shortcode();
 
-            // Enqueue scripts
+            // Enqueue scripts in frontend
             add_action('wp_enqueue_scripts', array($this, 'register_scripts'), 999);
+
+            // Enqueue scripts in backend
+            add_action('admin_enqueue_scripts', array($this, 'register_admin_scripts'));
         }
 
         // Defining constants 
@@ -132,13 +135,22 @@ if (!class_exists('Easy_Glide')) {
             require(EASY_GLIDE_PATH . 'views/settings-page.php');
         }
 
-        // Enqueue scripts
+        // Enqueue scripts in frontend
         public function register_scripts()
         {
             wp_register_script('easy-glide-main-jq', EASY_GLIDE_URL . 'vendor/flexslider/jquery.flexslider-min.js', array('jquery'), EASY_GLIDE_VERSION, true);
             wp_register_script('easy-glide-options-js', EASY_GLIDE_URL . 'vendor/flexslider/flexslider.js', array('jquery'), EASY_GLIDE_VERSION, true);
             wp_register_style('easy-glide-main-css', EASY_GLIDE_URL . 'vendor/flexslider/flexslider.css', array(), EASY_GLIDE_VERSION, 'all');
             wp_register_style('easy-glide-style-css', EASY_GLIDE_URL . 'assets/css/frontend.css', array(), EASY_GLIDE_VERSION, 'all');
+        }
+
+        // Enqueue scripts in backend
+        public function register_admin_scripts()
+        {
+            global $typenow;
+            if ($typenow == 'easy-glide') {
+                wp_enqueue_style('easy-glide-admin', EASY_GLIDE_URL . 'assets/css/admin.css');
+            }
         }
     }
 }
