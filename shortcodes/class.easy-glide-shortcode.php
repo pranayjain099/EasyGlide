@@ -1,11 +1,12 @@
 <?php
 
+// Shortcode class
 if (!class_exists('Easy_Glide_Shortcode')) {
     class Easy_Glide_Shortcode
     {
         public function __construct()
         {
-            // Shortode
+            // Registering Shortode
             add_shortcode('easy_glide', array($this, 'add_shortcode'));
         }
 
@@ -18,7 +19,7 @@ if (!class_exists('Easy_Glide_Shortcode')) {
             // extracts the shortcode attributes
             extract(shortcode_atts(
 
-                // Passing default value to the attribute , in case user do not provide any value then these value will be used.
+                // default value to the attribute 
                 array(
                     // Id of the slide
                     'id' => '',
@@ -33,27 +34,30 @@ if (!class_exists('Easy_Glide_Shortcode')) {
                 $tag
             ));
 
-            // user should pass the id value in interger only and seperated by comma.
-            // If user pass something other then integer then this funtion will delete that information and leave it with integer only.
+            // user should pass the slide id  seperated by comma.
+            // Absint function make sure that id passed by user is interger. If user pass something other then integer then this funtion will delete that information and leave it with integer only.
             if (!empty($id)) {
                 $id = array_map('absint', explode(',', $id));
             }
 
+            // Takes all the html ouput and pass to buffer
             ob_start();
 
             // Require the html view
             require(EASY_GLIDE_PATH . 'views/easy-glide_shortcode.php');
 
             // Enqueue scripts
-            wp_enqueue_script('mv-slider-main-jq');
+            wp_enqueue_script('easy-glide-main-jq');
 
             // Enqueue styles
-            wp_enqueue_style('mv-slider-main-css');
-            wp_enqueue_style('mv-slider-style-css');
+            // wp_enqueue_style('easy-glide-main-css');
+            wp_enqueue_style('easy-glide-style-css');
+
 
             // Function to control bullet display on slide show
             easy_glide_options();
 
+            // Returns the html output.
             return ob_get_clean();
         }
     }
