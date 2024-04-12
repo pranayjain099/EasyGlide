@@ -46,11 +46,13 @@ if (!class_exists('Easy_Glide_Shortcode')) {
 
             // Enqueue scripts
             wp_enqueue_script('mv-slider-main-jq');
-            wp_enqueue_script('mv-slider-options-js');
 
             // Enqueue styles
             wp_enqueue_style('mv-slider-main-css');
             wp_enqueue_style('mv-slider-style-css');
+
+            // Function to control bullet display on slide show
+            easy_glide_options();
 
             return ob_get_clean();
         }
