@@ -50,7 +50,7 @@ if (!class_exists('Easy_Glide_Shortcode')) {
             wp_enqueue_script('easy-glide-main-jq');
 
             // Enqueue styles
-            // wp_enqueue_style('easy-glide-main-css');
+            wp_enqueue_style('easy-glide-main-css');
             wp_enqueue_style('easy-glide-style-css');
 
 

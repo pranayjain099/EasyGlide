@@ -28,6 +28,7 @@ if (!class_exists('Easy_Glide')) {
         {
             $this->define_constant();
 
+            $this->load_textdomain();
             // Require functions file
             require_once(EASY_GLIDE_PATH . 'functions/functions.php');
 
@@ -79,6 +80,16 @@ if (!class_exists('Easy_Glide')) {
 
         public static function uninstall()
         {
+        }
+
+        // Loads the translation files
+        public function load_textdomain()
+        {
+            load_plugin_textdomain(
+                'mv-slider',
+                false,
+                dirname(plugin_basename(__FILE__)) . '/languages/'
+            );
         }
 
         // Callback function to add_menu in admin
