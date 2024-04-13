@@ -96,7 +96,7 @@ if (!class_exists('Easy_Glide')) {
         public function add_menu()
         {
             add_menu_page(
-                __('Easy Glide Options', 'easy-glide'),    // Page title
+                esc_html__('Easy Glide Options', 'easy-glide'),    // Page title
                 'Easy Glide',
                 'manage_options',
                 'easy_glide_admin',
@@ -107,8 +107,8 @@ if (!class_exists('Easy_Glide')) {
             // Submenu 1 = Opens the slider post type page
             add_submenu_page(
                 'easy_glide_admin',
-                __('Manage Slides', 'easy-glide'),
-                __('Manage Slides', 'easy-glide'),
+                esc_html__('Manage Slides', 'easy-glide'),
+                esc_html__('Manage Slides', 'easy-glide'),
                 'manage_options',
                 'edit.php?post_type=easy-glide',
                 null,
@@ -119,8 +119,8 @@ if (!class_exists('Easy_Glide')) {
             // Submenu 2   = to add new post in slider 
             add_submenu_page(
                 'easy_glide_admin',
-                __('Add New Slide', 'easy-glide'),
-                __('Add New Slide', 'easy-glide'),
+                esc_html__('Add New Slide', 'easy-glide'),
+                esc_html__('Add New Slide', 'easy-glide'),
                 'manage_options',
                 'post-new.php?post_type=easy-glide',
                 null,
@@ -139,7 +139,7 @@ if (!class_exists('Easy_Glide')) {
 
             // Showing success message when data is saved 
             if (isset($_GET['settings-updated'])) {
-                add_settings_error('easy_glide_options', 'easy_glide_message', __('Settings Saved', 'easy-glide'), 'success');
+                add_settings_error('easy_glide_options', 'easy_glide_message', esc_html__('Settings Saved', 'easy-glide'), 'success');
             }
 
             // showing error message 

@@ -23,7 +23,7 @@ if (!class_exists('Easy_Glide_Settings')) {
             // Section 1
             add_settings_section(
                 'easy_glide_main_section',
-                __('How does it work?', 'easy-glide'),
+                esc_html__('How does it work?', 'easy-glide'),
                 null,
                 'easy_glide_page1'
             );
@@ -31,7 +31,7 @@ if (!class_exists('Easy_Glide_Settings')) {
             // Section 2
             add_settings_section(
                 'easy_glide_second_section',
-                __('Other Plugin Options', 'easy-glide'),
+                esc_html__('Other Plugin Options', 'easy-glide'),
                 null,
                 'easy_glide_page2'
             );
@@ -40,7 +40,7 @@ if (!class_exists('Easy_Glide_Settings')) {
             // Field 1.1
             add_settings_field(
                 'easy_glide_shortcode',
-                __('Shortcode', 'easy-glide'),
+                esc_html__('Shortcode', 'easy-glide'),
                 array($this, 'easy_glide_shortcode_callback'),
                 'easy_glide_page1',
                 'easy_glide_main_section'
@@ -49,7 +49,7 @@ if (!class_exists('Easy_Glide_Settings')) {
             // Field 2.1
             add_settings_field(
                 'easy_glide_title',
-                __('Slider Title', 'easy-glide'),
+                esc_html__('Slider Title', 'easy-glide'),
                 array($this, 'easy_glide_title_callback'),
                 'easy_glide_page2',
                 'easy_glide_second_section',
@@ -61,7 +61,7 @@ if (!class_exists('Easy_Glide_Settings')) {
             // Field 2.2
             add_settings_field(
                 'easy_glide_bullets',
-                __('Display Bullets', 'easy-glide'),
+                esc_html__('Display Bullets', 'easy-glide'),
                 array($this, 'easy_glide_bullets_callback'),
                 'easy_glide_page2',
                 'easy_glide_second_section',
@@ -73,7 +73,7 @@ if (!class_exists('Easy_Glide_Settings')) {
             // Field 2.3
             add_settings_field(
                 'easy_glide_style',
-                __('Slider Style', 'easy-glide'),
+                esc_html__('Slider Style', 'easy-glide'),
                 array($this, 'easy_glide_style_callback'),
                 'easy_glide_page2',
                 'easy_glide_second_section',
@@ -92,7 +92,7 @@ if (!class_exists('Easy_Glide_Settings')) {
         public function easy_glide_shortcode_callback()
         {
             ?>
-            <span><?php _e('Use the shortcode [easy_glide] to display the glide in any page/post/widget', 'easy-glide') ?></span>
+            <span><?php esc_html_e('Use the shortcode [easy_glide] to display the glide in any page/post/widget', 'easy-glide') ?></span>
             <?php
         }
 
@@ -146,7 +146,7 @@ if (!class_exists('Easy_Glide_Settings')) {
 
                         // If the input field is empty
                         if (empty($value)) {
-                            $value = __('Please, type some text', 'easy-glide');
+                            $value = esc_html__('Please, type some text', 'easy-glide');
                         }
                         $new_input[$key] = sanitize_text_field($value);
                         break;

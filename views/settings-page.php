@@ -14,8 +14,10 @@
     $active_tab = isset($_GET['tab']) ? $_GET['tab'] : 'main_options';
     ?>
     <h2 class="nav-tab-wrapper">
-        <a href="?page=easy_glide_admin&tab=main_options" class="nav-tab <?php echo $active_tab == 'main_options' ? 'nav-tab-active' : ''; ?>"><?php _e('Main Options', 'easy-glide') ?></a>
-        <a href="?page=easy_glide_admin&tab=additional_options" class="nav-tab <?php echo $active_tab == 'additional_options' ? 'nav-tab-active' : ''; ?>"><?php _e('Additional Options', 'easy-glide') ?></a>
+        <a href="?page=easy_glide_admin&tab=main_options"
+            class="nav-tab <?php echo $active_tab == 'main_options' ? 'nav-tab-active' : ''; ?>"><?php esc_html_e('Main Options', 'easy-glide') ?></a>
+        <a href="?page=easy_glide_admin&tab=additional_options"
+            class="nav-tab <?php echo $active_tab == 'additional_options' ? 'nav-tab-active' : ''; ?>"><?php esc_html_e('Additional Options', 'easy-glide') ?></a>
     </h2>
 
 
@@ -29,7 +31,7 @@
             settings_fields('easy_glide_group');
             do_settings_sections('easy_glide_page2');
         }
-        submit_button(__('Save Settings', 'easy-glide'));
+        submit_button(esc_html__('Save Settings', 'easy-glide'));
         ?>
     </form>
 </div>

@@ -29,15 +29,15 @@ if (!class_exists('Easy_Glide_Post_Type')) {
         {
             $labels =
                 [
-                    'name'  => __('Sliders', 'easy-glide'),
-                    'singular_name' => __('Slider', 'easy-glide'),
+                    'name' => esc_html__('Sliders', 'easy-glide'),
+                    'singular_name' => esc_html__('Slider', 'easy-glide'),
                 ];
 
             // Arguments of post type
             $args =
                 [
-                    'label' => __('Slider', 'easy-glide'),
-                    'description' => __('This will help you to create each item in the slideshow', 'easy-glide'),
+                    'label' => esc_html__('Slider', 'easy-glide'),
+                    'description' => esc_html__('This will help you to create each item in the slideshow', 'easy-glide'),
                     'labels' => $labels,
                     'public' => true,
                     'supports' => ['title', 'editor', 'thumbnail'],
@@ -90,19 +90,19 @@ if (!class_exists('Easy_Glide_Post_Type')) {
         public function add_meta_boxes()
         {
             add_meta_box(
-                'easy_glide_meta_box',                  // Id 
-                __('Link Options', 'easy-glide'),       // Title
-                array($this, 'add_inner_meta_boxes'),   // Callback function
-                'easy-glide',                           // screen
-                'normal',                               // Context
-                'high'                                  // Priority
+                'easy_glide_meta_box',                        // Id 
+                esc_html__('Link Options', 'easy-glide'),       // Title
+                array($this, 'add_inner_meta_boxes'),          // Callback function
+                'easy-glide',                                   // screen
+                'normal',                                         // Context
+                'high'                                           // Priority
             );
         }
 
         // Callback function for Metabox html
         public function add_inner_meta_boxes($post)
         {
-            require_once(EASY_GLIDE_PATH . 'views/easy-glide_metabox.php');
+            require_once (EASY_GLIDE_PATH . 'views/easy-glide_metabox.php');
         }
 
         // Saving the data in wp_postmeta table
@@ -149,7 +149,7 @@ if (!class_exists('Easy_Glide_Post_Type')) {
                 // Sanitizing the user input and also giving some default value if user kept both the fields empty then it should save some default information in the database so that we have something to display.
 
                 if (empty($new_link_text)) {
-                    update_post_meta($post_id, 'easy_glide_link_text', __('Add some text', 'easy-glide'));
+                    update_post_meta($post_id, 'easy_glide_link_text', esc_html__('Add some text', 'easy-glide'));
                 } else {
                     update_post_meta($post_id, 'easy_glide_link_text', sanitize_text_field($new_link_text), $old_link_text);
                 }
