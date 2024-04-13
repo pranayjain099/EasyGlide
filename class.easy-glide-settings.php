@@ -1,6 +1,7 @@
 <?php
-if (!class_exists('Easy_Glide_Settings')){
-    class Easy_Glide_Settings{
+if (!class_exists('Easy_Glide_Settings')) {
+    class Easy_Glide_Settings
+    {
         public static $options;
 
         public function __construct()
@@ -10,7 +11,6 @@ if (!class_exists('Easy_Glide_Settings')){
 
             // Register sections and fields 
             add_action('admin_init', array($this, 'admin_init'));
-
         }
 
 
@@ -23,7 +23,7 @@ if (!class_exists('Easy_Glide_Settings')){
             // Section 1
             add_settings_section(
                 'easy_glide_main_section',
-                'How does it work?',
+                __('How does it work?', 'easy-glide'),
                 null,
                 'easy_glide_page1'
             );
@@ -31,7 +31,7 @@ if (!class_exists('Easy_Glide_Settings')){
             // Section 2
             add_settings_section(
                 'easy_glide_second_section',
-                'Other Plugin Options',
+                __('Other Plugin Options', 'easy-glide'),
                 null,
                 'easy_glide_page2'
             );
@@ -40,7 +40,7 @@ if (!class_exists('Easy_Glide_Settings')){
             // Field 1.1
             add_settings_field(
                 'easy_glide_shortcode',
-                'Shortcode',
+                __('Shortcode', 'easy-glide'),
                 array($this, 'easy_glide_shortcode_callback'),
                 'easy_glide_page1',
                 'easy_glide_main_section'
@@ -49,7 +49,7 @@ if (!class_exists('Easy_Glide_Settings')){
             // Field 2.1
             add_settings_field(
                 'easy_glide_title',
-                'Slider Title',
+                __('Slider Title', 'easy-glide'),
                 array($this, 'easy_glide_title_callback'),
                 'easy_glide_page2',
                 'easy_glide_second_section',
@@ -61,7 +61,7 @@ if (!class_exists('Easy_Glide_Settings')){
             // Field 2.2
             add_settings_field(
                 'easy_glide_bullets',
-                'Display Bullets',
+                __('Display Bullets', 'easy-glide'),
                 array($this, 'easy_glide_bullets_callback'),
                 'easy_glide_page2',
                 'easy_glide_second_section',
@@ -73,7 +73,7 @@ if (!class_exists('Easy_Glide_Settings')){
             // Field 2.3
             add_settings_field(
                 'easy_glide_style',
-                'Slider Style',
+                __('Slider Style', 'easy-glide'),
                 array($this, 'easy_glide_style_callback'),
                 'easy_glide_page2',
                 'easy_glide_second_section',
@@ -85,7 +85,6 @@ if (!class_exists('Easy_Glide_Settings')){
                     'label_for' => 'easy_glide_style'
                 )
             );
-
         }
 
 
@@ -93,7 +92,7 @@ if (!class_exists('Easy_Glide_Settings')){
         public function easy_glide_shortcode_callback()
         {
             ?>
-            <span>Use the shortcode [easy_glide] to display the glide in any page/post/widget</span>
+            <span><?php _e('Use the shortcode [easy_glide] to display the glide in any page/post/widget', 'easy-glide') ?></span>
             <?php
         }
 
@@ -115,8 +114,7 @@ if (!class_exists('Easy_Glide_Settings')){
                 checked("1", self::$options['easy_glide_bullets'], true);
             }
             ?> />
-            <label for="easy_glide_bullets">Whether to display bullets or not</label>
-
+            <label for="easy_glide_bullets"><?php _e('Whether to display bullets or not', 'easy-glide') ?></label>
             <?php
         }
 
@@ -148,7 +146,7 @@ if (!class_exists('Easy_Glide_Settings')){
 
                         // If the input field is empty
                         if (empty($value)) {
-                            $value = 'Please, type some text';
+                            $value = __('Please, type some text', 'easy-glide');
                         }
                         $new_input[$key] = sanitize_text_field($value);
                         break;
@@ -160,6 +158,4 @@ if (!class_exists('Easy_Glide_Settings')){
             return $new_input;
         }
     }
-
 }
-

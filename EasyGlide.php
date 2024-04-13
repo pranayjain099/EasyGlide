@@ -30,21 +30,21 @@ if (!class_exists('Easy_Glide')) {
 
             $this->load_textdomain();
             // Require functions file
-            require_once(EASY_GLIDE_PATH . 'functions/functions.php');
+            require_once (EASY_GLIDE_PATH . 'functions/functions.php');
 
             // Adding menu in admin
             add_action('admin_menu', array($this, 'add_menu'));
 
             // Require Custom post type file
-            require_once(EASY_GLIDE_PATH . 'post-types/class.easy-glide-cpt.php');
+            require_once (EASY_GLIDE_PATH . 'post-types/class.easy-glide-cpt.php');
             $Easy_Glide_Post_Type = new Easy_Glide_Post_Type();
 
             // Require Settings file
-            require_once(EASY_GLIDE_PATH . 'class.easy-glide-settings.php');
+            require_once (EASY_GLIDE_PATH . 'class.easy-glide-settings.php');
             $Easy_Glide_Settings = new Easy_Glide_Settings();
 
             // Require Shortcode file
-            require_once(EASY_GLIDE_PATH . 'shortcodes/class.easy-glide-shortcode.php');
+            require_once (EASY_GLIDE_PATH . 'shortcodes/class.easy-glide-shortcode.php');
             $Easy_Glide_Shortcode = new Easy_Glide_Shortcode();
 
             // Enqueue scripts in frontend
@@ -96,7 +96,7 @@ if (!class_exists('Easy_Glide')) {
         public function add_menu()
         {
             add_menu_page(
-                'Easy Glide Options',    // Page title
+                __('Easy Glide Options', 'easy-glide'),    // Page title
                 'Easy Glide',
                 'manage_options',
                 'easy_glide_admin',
@@ -107,8 +107,8 @@ if (!class_exists('Easy_Glide')) {
             // Submenu 1 = Opens the slider post type page
             add_submenu_page(
                 'easy_glide_admin',
-                'Manage Slides',
-                'Manage Slides',
+                __('Manage Slides', 'easy-glide'),
+                __('Manage Slides', 'easy-glide'),
                 'manage_options',
                 'edit.php?post_type=easy-glide',
                 null,
@@ -119,8 +119,8 @@ if (!class_exists('Easy_Glide')) {
             // Submenu 2   = to add new post in slider 
             add_submenu_page(
                 'easy_glide_admin',
-                'Add New Slide',
-                'Add New Slide',
+                __('Add New Slide', 'easy-glide'),
+                __('Add New Slide', 'easy-glide'),
                 'manage_options',
                 'post-new.php?post_type=easy-glide',
                 null,
@@ -139,14 +139,14 @@ if (!class_exists('Easy_Glide')) {
 
             // Showing success message when data is saved 
             if (isset($_GET['settings-updated'])) {
-                add_settings_error('easy_glide_options', 'easy_glide_message', 'Settings Saved', 'success');
+                add_settings_error('easy_glide_options', 'easy_glide_message', __('Settings Saved', 'easy-glide'), 'success');
             }
 
             // showing error message 
             settings_errors('easy_glide_options');
 
             // Whole content of settings page 
-            require(EASY_GLIDE_PATH . 'views/settings-page.php');
+            require (EASY_GLIDE_PATH . 'views/settings-page.php');
         }
 
         // Enqueue scripts in frontend
