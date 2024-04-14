@@ -86,7 +86,7 @@ if (!class_exists('Easy_Glide')) {
         public function load_textdomain()
         {
             load_plugin_textdomain(
-                'mv-slider',
+                'easy-glide',
                 false,
                 dirname(plugin_basename(__FILE__)) . '/languages/'
             );

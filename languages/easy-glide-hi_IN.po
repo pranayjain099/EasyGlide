@@ -1,0 +1,116 @@
+# Blank WordPress Pot
+# Copyright 2014 ...
+# This file is distributed under the GNU General Public License v3 or later.
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: mv-slider v1.0.0\n"
+"Report-Msgid-Bugs-To: Translator Name <translations@example.com>\n"
+"POT-Creation-Date: 2024-04-14 09:15+0530\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: Your Team <translations@example.com>\n"
+"Language: hi_IN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n==0 || n==1);\n"
+"X-Textdomain-Support: yesX-Generator: Poedit 1.6.4\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;esc_html_e;esc_html_x:1,2c;esc_html__;esc_attr_e;esc_attr_x:1,2c;esc_attr__;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_x:1,2c;_n:1,2;_n_noop:1,2;__ngettext:1,2;__ngettext_noop:1,2;_c,_nc:4c,1,2\n"
+"X-Poedit-Basepath: ..\n"
+"X-Generator: Poedit 3.4.2\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: EasyGlide.php:99
+msgid "Easy Glide Options"
+msgstr "आसान ग्लाइड विकल्प"
+
+#: EasyGlide.php:110 EasyGlide.php:111
+msgid "Manage Slides"
+msgstr "स्लाइड प्रबंधित करें"
+
+#: EasyGlide.php:122 EasyGlide.php:123
+msgid "Add New Slide"
+msgstr "नई स्लाइड जोड़ें"
+
+#: EasyGlide.php:142
+msgid "Settings Saved"
+msgstr "सेटिंग्स सेव्ड"
+
+#: class.easy-glide-settings.php:26
+msgid "How does it work?"
+msgstr "यह कैसे काम करता है?"
+
+#: class.easy-glide-settings.php:34
+msgid "Other Plugin Options"
+msgstr "अन्य प्लगइन विकल्प"
+
+#: class.easy-glide-settings.php:43
+msgid "Shortcode"
+msgstr "शॉर्टकोडे"
+
+#: class.easy-glide-settings.php:52
+msgid "Slider Title"
+msgstr "स्लाइडर शीर्षक"
+
+#: class.easy-glide-settings.php:64
+msgid "Display Bullets"
+msgstr "बुलेट प्रदर्शित करें"
+
+#: class.easy-glide-settings.php:76
+msgid "Slider Style"
+msgstr "स्लाइडर शैली"
+
+#: class.easy-glide-settings.php:95
+msgid "Use the shortcode [easy_glide] to display the glide in any page/post/widget"
+msgstr "किसी भी पेज/पोस्ट/विजेट में ग्लाइड प्रदर्शित करने के लिए शॉर्टकोड [easy_glide] का उपयोग करें"
+
+#: class.easy-glide-settings.php:117
+msgid "Whether to display bullets or not"
+msgstr "गोलियों का प्रदर्शन करना है या नहीं"
+
+#: class.easy-glide-settings.php:149
+msgid "Please, type some text"
+msgstr "गोलियों का प्रदर्शन करना है या नहीं"
+
+#: post-types/class.easy-glide-cpt.php:32
+msgid "Sliders"
+msgstr "स्लाइडर"
+
+#: post-types/class.easy-glide-cpt.php:33
+#: post-types/class.easy-glide-cpt.php:39
+msgid "Slider"
+msgstr "स्लाइडर"
+
+#: post-types/class.easy-glide-cpt.php:40
+msgid "This will help you to create each item in the slideshow"
+msgstr "इससे आपको स्लाइड शो में प्रत्येक आइटम बनाने में मदद मिलेगी"
+
+#: post-types/class.easy-glide-cpt.php:64 views/easy-glide_metabox.php:23
+msgid "Link Text"
+msgstr "लिंक पाठ"
+
+#: post-types/class.easy-glide-cpt.php:65 views/easy-glide_metabox.php:32
+msgid "Link URL"
+msgstr "लिंक यूआरएल"
+
+#: post-types/class.easy-glide-cpt.php:94
+msgid "Link Options"
+msgstr "लिंक विकल्प"
+
+#: post-types/class.easy-glide-cpt.php:152
+msgid "Add some text"
+msgstr "कुछ पाठ जोड़ें"
+
+#: views/settings-page.php:18
+msgid "Main Options"
+msgstr "मुख्य विकल्प"
+
+#: views/settings-page.php:20
+msgid "Additional Options"
+msgstr "अतिरिक्त विकल्प"
+
+#: views/settings-page.php:34
+msgid "Save Settings"
+msgstr "सेटिंग्स सेव करें"
