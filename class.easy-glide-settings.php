@@ -1,23 +1,23 @@
 <?php
+
 if (!class_exists('Easy_Glide_Settings')) {
     class Easy_Glide_Settings
     {
+
         public static $options;
 
         public function __construct()
         {
             // $options will contains an array with all the values submitted by our form.
             self::$options = get_option('easy_glide_options');
-
-            // Register sections and fields 
             add_action('admin_init', array($this, 'admin_init'));
         }
-
 
         // Register sections and fields 
         public function admin_init()
         {
-            // Registering the settings 
+
+            // Registering the settings
             register_setting('easy_glide_group', 'easy_glide_options', array($this, 'easy_glide_validate'));
 
             // Section 1
@@ -35,7 +35,6 @@ if (!class_exists('Easy_Glide_Settings')) {
                 null,
                 'easy_glide_page2'
             );
-
 
             // Field 1.1
             add_settings_field(
@@ -84,15 +83,15 @@ if (!class_exists('Easy_Glide_Settings')) {
                     ),
                     'label_for' => 'easy_glide_style'
                 )
+
             );
         }
-
 
         // Callback function of field 1.1
         public function easy_glide_shortcode_callback()
         {
             ?>
-            <span><?php esc_html_e('Use the shortcode [easy_glide] to display the glide in any page/post/widget', 'easy-glide') ?></span>
+            <span><?php esc_html_e('Use the shortcode [easy_glide] to display the slider in any page/post/widget', 'easy-glide'); ?></span>
             <?php
         }
 
@@ -114,7 +113,7 @@ if (!class_exists('Easy_Glide_Settings')) {
                 checked("1", self::$options['easy_glide_bullets'], true);
             }
             ?> />
-            <label for="easy_glide_bullets"><?php _e('Whether to display bullets or not', 'easy-glide') ?></label>
+            <label for="easy_glide_bullets"><?php esc_html_e('Whether to display bullets or not', 'easy-glide'); ?></label>
             <?php
         }
 
@@ -143,9 +142,8 @@ if (!class_exists('Easy_Glide_Settings')) {
             foreach ($input as $key => $value) {
                 switch ($key) {
                     case 'easy_glide_title':
-
-                        // If the input field is empty
                         if (empty($value)) {
+                            add_settings_error('easy_glide_options', 'easy_glide_message', esc_html__('The title field can not be left empty', 'easy-glide'), 'error');
                             $value = esc_html__('Please, type some text', 'easy-glide');
                         }
                         $new_input[$key] = sanitize_text_field($value);
@@ -157,5 +155,7 @@ if (!class_exists('Easy_Glide_Settings')) {
             }
             return $new_input;
         }
+
     }
 }
+

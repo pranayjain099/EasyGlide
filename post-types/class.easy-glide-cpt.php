@@ -90,12 +90,12 @@ if (!class_exists('Easy_Glide_Post_Type')) {
         public function add_meta_boxes()
         {
             add_meta_box(
-                'easy_glide_meta_box',                        // Id 
-                esc_html__('Link Options', 'easy-glide'),       // Title
-                array($this, 'add_inner_meta_boxes'),          // Callback function
-                'easy-glide',                                   // screen
-                'normal',                                         // Context
-                'high'                                           // Priority
+                'easy_glide_meta_box',
+                esc_html__('Link Options', 'easy-glide'),
+                array($this, 'add_inner_meta_boxes'),
+                'easy-glide',
+                'normal',
+                'high'
             );
         }
 
@@ -108,8 +108,7 @@ if (!class_exists('Easy_Glide_Post_Type')) {
         // Saving the data in wp_postmeta table
         public function save_post($post_id)
         {
-
-            // Verifying Nonce 
+            // Verifying Nonce
             if (isset($_POST['easy_glide_nonce'])) {
                 if (!wp_verify_nonce($_POST['easy_glide_nonce'], 'easy_glide_nonce')) {
                     return;
@@ -159,7 +158,10 @@ if (!class_exists('Easy_Glide_Post_Type')) {
                 } else {
                     update_post_meta($post_id, 'easy_glide_link_url', sanitize_text_field($new_link_url), $old_link_url);
                 }
+
+
             }
         }
+
     }
 }

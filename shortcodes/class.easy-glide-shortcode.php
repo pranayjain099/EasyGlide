@@ -1,6 +1,5 @@
 <?php
 
-// Shortcode class
 if (!class_exists('Easy_Glide_Shortcode')) {
     class Easy_Glide_Shortcode
     {
@@ -17,22 +16,22 @@ if (!class_exists('Easy_Glide_Shortcode')) {
             $atts = array_change_key_case((array) $atts, CASE_LOWER);
 
             // extracts the shortcode attributes
-            extract(shortcode_atts(
+            extract(
+                shortcode_atts(
+                    // default value to the attribute 
+                    array(
+                        // Id of the slide
+                        'id' => '',
 
-                // default value to the attribute 
-                array(
-                    // Id of the slide
-                    'id' => '',
-
-                    // To chose order of their presentation
-                    'orderby' => 'date'
-                ),
-
-                // Attributes provided by user.
-                $atts,
-                // this allows us to create a specific filter for our shortcode.
-                $tag
-            ));
+                        // To chose order of their presentation
+                        'orderby' => 'date'
+                    ),
+                    // Attributes provided by user.
+                    $atts,
+                    // this allows us to create a specific filter for our shortcode.
+                    $tag
+                )
+            );
 
             // user should pass the slide id  seperated by comma.
             // Absint function make sure that id passed by user is interger. If user pass something other then integer then this funtion will delete that information and leave it with integer only.
@@ -44,7 +43,7 @@ if (!class_exists('Easy_Glide_Shortcode')) {
             ob_start();
 
             // Require the html view
-            require(EASY_GLIDE_PATH . 'views/easy-glide_shortcode.php');
+            require (EASY_GLIDE_PATH . 'views/easy-glide_shortcode.php');
 
             // Enqueue scripts
             wp_enqueue_script('easy-glide-main-jq');
@@ -52,7 +51,6 @@ if (!class_exists('Easy_Glide_Shortcode')) {
             // Enqueue styles
             wp_enqueue_style('easy-glide-main-css');
             wp_enqueue_style('easy-glide-style-css');
-
 
             // Function to control bullet display on slide show
             easy_glide_options();

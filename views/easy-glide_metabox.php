@@ -1,6 +1,6 @@
 <?php
-// Displaying the data in the fields of metabox
 
+// Displaying the data in the fields of metabox
 $meta = get_post_meta($post->ID);
 
 // Retrieving the text 
@@ -8,7 +8,6 @@ $link_text = get_post_meta($post->ID, 'easy_glide_link_text', true);
 
 // Retrieving the url
 $link_url = get_post_meta($post->ID, 'easy_glide_link_url', true);
-
 ?>
 
 <!-- HTMl Form  -->
@@ -20,7 +19,7 @@ $link_url = get_post_meta($post->ID, 'easy_glide_link_url', true);
     <!-- Table -->
     <tr>
         <th>
-            <label for="easy_glide_link_text"><?php esc_html_e('Link Text', 'easy-glide') ?></label>
+            <label for="easy_glide_link_text"><?php esc_html_e('Link Text', 'easy-glide'); ?></label>
         </th>
         <td>
             <input type="text" name="easy_glide_link_text" id="easy_glide_link_text" class="regular-text link-text"
@@ -29,7 +28,7 @@ $link_url = get_post_meta($post->ID, 'easy_glide_link_url', true);
     </tr>
     <tr>
         <th>
-            <label for="easy_glide_link_url"><?php esc_html_e('Link URL', 'easy-glide') ?></label>
+            <label for="easy_glide_link_url"><?php esc_html_e('Link URL', 'easy-glide'); ?></label>
         </th>
         <td>
             <input type="url" name="easy_glide_link_url" id="easy_glide_link_url" class="regular-text link-url"

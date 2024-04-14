@@ -16,19 +16,20 @@
  */
 
 // defining ABSPATH for security purpose
-if (!defined("ABSPATH")) {
-    die(' hehehehehe');
+if (!defined('ABSPATH')) {
+    exit;
 }
+
 // Defining class 
 if (!class_exists('Easy_Glide')) {
-
     class Easy_Glide
     {
         function __construct()
         {
-            $this->define_constant();
+            $this->define_constants();
 
             $this->load_textdomain();
+
             // Require functions file
             require_once (EASY_GLIDE_PATH . 'functions/functions.php');
 
@@ -55,31 +56,48 @@ if (!class_exists('Easy_Glide')) {
         }
 
         // Defining constants 
-        public function define_constant()
+        public function define_constants()
         {
             define('EASY_GLIDE_PATH', plugin_dir_path(__FILE__));
             define('EASY_GLIDE_URL', plugin_dir_url(__FILE__));
             define('EASY_GLIDE_VERSION', '1.0.0');
         }
+
+        // Plugin activation
         public static function activate()
         {
             // Updating the option 'rewrite_rules' to an empty string during plugin activation is a common practice in WordPress plugin development. 
             update_option('rewrite_rules', '');
         }
 
+        // Plugin Deactivation
         public static function deactivate()
         {
             //  it flushes the rewrite rules.
-
             flush_rewrite_rules();
 
             // Unregister custom post type
             unregister_post_type('easy-glide');
         }
 
-
+        // Uninstall plugin
         public static function uninstall()
         {
+            // Deleting the options field
+            delete_option('easy_glide_options');
+
+            $posts = get_posts(
+                array(
+                    'post_type' => 'easy-glide',
+                    'number_posts' => -1,
+                    'post_status' => 'any'
+                )
+            );
+
+            // Deleting post and post type
+            foreach ($posts as $post) {
+                wp_delete_post($post->ID, true);
+            }
         }
 
         // Loads the translation files
@@ -96,8 +114,8 @@ if (!class_exists('Easy_Glide')) {
         public function add_menu()
         {
             add_menu_page(
-                esc_html__('Easy Glide Options', 'easy-glide'),    // Page title
-                'Easy Glide',
+                esc_html__('Easy Slider Options', 'easy-glide'),
+                'Easy Slider',
                 'manage_options',
                 'easy_glide_admin',
                 array($this, 'easy_glide_settings_page'),
@@ -112,8 +130,7 @@ if (!class_exists('Easy_Glide')) {
                 'manage_options',
                 'edit.php?post_type=easy-glide',
                 null,
-                null,
-
+                null
             );
 
             // Submenu 2   = to add new post in slider 
@@ -124,9 +141,9 @@ if (!class_exists('Easy_Glide')) {
                 'manage_options',
                 'post-new.php?post_type=easy-glide',
                 null,
-                null,
-
+                null
             );
+
         }
 
         // Callback function of menu
@@ -153,11 +170,10 @@ if (!class_exists('Easy_Glide')) {
         public function register_scripts()
         {
             // Enqueue script
-            wp_register_script('easy-glide-main-jq', EASY_GLIDE_URL . 'vendor/jquery.flexslider-min.js', array('jquery'), EASY_GLIDE_VERSION, true);
+            wp_register_script('easy-glide-main-jq', EASY_GLIDE_URL . 'vendor/flexslider/jquery.flexslider-min.js', array('jquery'), EASY_GLIDE_VERSION, true);
 
             // Enqueue Styles
-            wp_register_style('easy-glide-main-css', EASY_GLIDE_URL . 'vendor/flexslider.css', array(), EASY_GLIDE_VERSION, 'all');
-
+            wp_register_style('easy-glide-main-css', EASY_GLIDE_URL . 'vendor/flexslider/flexslider.css', array(), EASY_GLIDE_VERSION, 'all');
             wp_register_style('easy-glide-style-css', EASY_GLIDE_URL . 'assets/css/frontend.css', array(), EASY_GLIDE_VERSION, 'all');
         }
 
@@ -169,11 +185,11 @@ if (!class_exists('Easy_Glide')) {
                 wp_enqueue_style('easy-glide-admin', EASY_GLIDE_URL . 'assets/css/admin.css');
             }
         }
+
     }
 }
 
 if (class_exists('Easy_Glide')) {
-
     // takes two parameter path and an array which contains class name and funciton name.
     register_activation_hook(__FILE__, array('Easy_Glide', 'activate'));
     register_deactivation_hook(__FILE__, array('Easy_Glide', 'deactivate'));
@@ -182,3 +198,4 @@ if (class_exists('Easy_Glide')) {
     // Creating object of class
     $easy_glide = new Easy_Glide();
 }
+

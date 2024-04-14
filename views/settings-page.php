@@ -15,11 +15,10 @@
     ?>
     <h2 class="nav-tab-wrapper">
         <a href="?page=easy_glide_admin&tab=main_options"
-            class="nav-tab <?php echo $active_tab == 'main_options' ? 'nav-tab-active' : ''; ?>"><?php esc_html_e('Main Options', 'easy-glide') ?></a>
+            class="nav-tab <?php echo $active_tab == 'main_options' ? 'nav-tab-active' : ''; ?>"><?php esc_html_e('Main Options', 'easy-glide'); ?></a>
         <a href="?page=easy_glide_admin&tab=additional_options"
-            class="nav-tab <?php echo $active_tab == 'additional_options' ? 'nav-tab-active' : ''; ?>"><?php esc_html_e('Additional Options', 'easy-glide') ?></a>
+            class="nav-tab <?php echo $active_tab == 'additional_options' ? 'nav-tab-active' : ''; ?>"><?php esc_html_e('Additional Options', 'easy-glide'); ?></a>
     </h2>
-
 
     <!-- options.php file is responsible for processing all forms in wordpress admin-->
     <form action="options.php" method="post">
