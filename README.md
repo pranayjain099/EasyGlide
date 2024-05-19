@@ -63,10 +63,6 @@ To install Easy Glide on your WordPress site, follow these simple steps:
 ![Screenshot (920)](https://github.com/pranayjain099/EasyGlide/assets/109263743/7704a8bc-ee8d-4e1f-9fc7-6e611944bb93)
 
 
-**Comple explation tutorial**
-
-
-https://github.com/pranayjain099/EasyGlide/assets/109263743/60005f35-b151-43b0-bc52-3aec37832dcd
 
 
 **Internationalization**
