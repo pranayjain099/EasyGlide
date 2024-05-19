@@ -7,8 +7,7 @@ Welcome to Easy Glide, your simple yet powerful slideshow plugin for WordPress!
 Easy Glide is a WordPress plugin designed to make adding beautiful slideshows to your posts and pages a breeze. Whether you're a beginner looking to explore the world of plugin development or a seasoned developer seeking a lightweight solution for your projects, Easy Glide has got you covered.
 
 
-
-https://github.com/pranayjain099/EasyGlide/assets/109263743/f3461ea2-3da9-42d3-a6a0-370191b603b1
+https://github.com/pranayjain099/EasyGlide/assets/109263743/0e2fc0b1-75b8-4916-bc9c-89afec2a8c37
 
 
 https://github.com/pranayjain099/EasyGlide/assets/109263743/b3e7b0a0-cbc1-4fd1-af66-e606e6682046
